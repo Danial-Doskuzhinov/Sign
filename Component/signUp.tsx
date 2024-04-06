@@ -5,7 +5,7 @@ type Props ={
   accessToken:string,
   refreshToken:string
 }
-const RegisterPage = () => {
+const signUp = () => {
   const router = useRouter(); 
   const [login, setLogin] = useState('');
   const [email, setEmail] = useState('');
@@ -69,4 +69,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default signUp;

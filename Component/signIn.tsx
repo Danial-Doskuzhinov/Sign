@@ -1,4 +1,3 @@
-// LoginPage.tsx
 'use client'
 import { useState } from 'react';
 import { useRouter } from 'next/navigation'
@@ -6,7 +5,7 @@ type Props ={
     accessToken:string,
     refreshToken:string
   }
-const LoginPage = () => {
+const signIn = () => {
     const router = useRouter(); 
     const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -58,4 +57,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default signIn;
