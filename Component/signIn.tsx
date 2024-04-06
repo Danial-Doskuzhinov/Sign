@@ -2,9 +2,12 @@
 'use client'
 import { useState } from 'react';
 import { useRouter } from 'next/navigation'
-
+type Props ={
+    accessToken:string,
+    refreshToken:string
+  }
 const LoginPage = () => {
-    const router = useRouter(); // Инициализируем useRouter
+    const router = useRouter(); 
     const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -19,9 +22,8 @@ const LoginPage = () => {
         },
         body: JSON.stringify({ email, password }),
       });
-      const data = await response.json();
+      const data:Props = await response.json();
       if (response.ok) {
-        // Успешный вход, сохраняем токены
         document.cookie = `accessToken=${data.accessToken}; path=/; secure; HttpOnly`;
         localStorage.setItem('refreshToken', data.refreshToken);
         setMessage('Вход успешен!');
